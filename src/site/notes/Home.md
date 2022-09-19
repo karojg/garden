@@ -7,7 +7,7 @@
 Hey, I am Karo 🌱  
 
 I am a Software Developer from sunny Costa Rica who enjoys developing web-based applications, coffee, swimming, and traveling.
-This is my digital garden, where you will find my learning notes.
+This is my digital garden, where you will find my in progress learning notes.
 
 Notes Index
 - [[css/index|CSS]]
