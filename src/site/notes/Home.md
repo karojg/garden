@@ -10,5 +10,7 @@ I am a Software Developer from sunny Costa Rica who enjoys developing web-based 
 This is my digital garden, where you will find my learning notes.
 
 Notes Index
-- [[css|CSS]]
+- [[css/index|CSS]]
 - [[go/index|Go]]
+- [[js/index|JS]]
+- [[react/index|React]]
