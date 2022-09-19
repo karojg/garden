@@ -11,3 +11,4 @@ This is my digital garden, where you will find my learning notes.
 
 Notes Index
 - [[css|css]]
+- [[go/index|index]]
