@@ -3,6 +3,8 @@
 ---
 
 
+
+
 To Review:
 
 - https://www.patterns.dev/posts/reactjs/
@@ -129,6 +131,3 @@ Compound components are components that work together to form a complete UI. The
 </select>
 
 ```
-
-
-React
