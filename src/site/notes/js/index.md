@@ -160,6 +160,3 @@ months.splice(4, 0, 'May');
 console.log(months);
 // expected output: Array ["Jan", "Feb", "March", "April", "May"]
 ```
-
-
-JS
