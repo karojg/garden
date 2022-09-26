@@ -145,7 +145,6 @@ The four aspects that make up the box model are:
 
 When we set our .box to have `width: 100%`, we're saying that the box's content size should be equal to the available space, 500px. The padding and border is added on top.
 
-
 > [!NOTE] box-sizing
 > The `box-sizing` CSS property allows us to change the rules for size calculations. The default value (content-box) only takes the inner content into account, but it offers an alternative value: `border-box`.
 > With `box-sizing: border-box`, things behave **much** more intuitively.
@@ -170,24 +169,22 @@ Many developers believe that pixels are bad for accessibility. This is true when
 **Padding percentages**
 
 Can we use percentages for padding, like this?
-
+```
 .box {
-
   padding-top: 25%;
-
 }
+```
 
 We _can_, but the result is surprising and counter-intuitive; **percentages always refer to the width of the element**, even when setting top/bottom padding.
-
 
 ```
 padding-block: 20px;
 padding-inline: 10px;
 padding-inline-start: 0px;
 ```
+
 >[!NOTE] Logical properties
 >`padding-block` refers to the top and bottom (in top-down left-to-right languages like English). `padding-inline` refers to the left and right. `padding-inline-start` refers to the left.
-
 
 ### Border
 There are three styles specific to border:
@@ -216,12 +213,12 @@ With padding and border, only positive numbers (including 0) are supported. With
 
 Negative margin can affect the position of _all siblings_. 
 
-## Auto margins
+### Auto margins
 Two caveats:
 
 -   **This only works for horizontal margin.** Setting top/bottom margin to `auto` is equivalent to setting it to `0px`
 -   **This only works on elements with an explicit width**. Block elements will naturally grow to fill the available horizontal space, so we need to give our element a `width` in order to center it.
--
+
 ### Stretched content
 Create a wrapper
 apply negative margings
@@ -229,3 +226,62 @@ apply negative margings
 >[!NOTE] Stretched content outside of main content
 > - Create a wrapper
 > - Apply negative margings to the desired component
+
+## Flow Layout
+Flow layout is the default layout mode. All the examples we've seen so far are rendered in Flow layout. A plain HTML document, with no CSS applied, uses Flow layout exclusively.
+In Flow layout, every element will use a `display` value of either **inline**, **block**, or **inline-block**.
+
+## Inline elements don't want to make a fuss
+
+This snippet will have no effect:
+```
+strong {
+  height: 2em;
+}
+```
+You can picture inline elements as go-with-the-flow-type folks. They don't want to inconvenience anyone by pushing any boundaries.
+
+A replaced element is one that embeds a "foreign" object. This includes:
+
+-   `<img />`
+-   `<video />`
+-   `<canvas />`
+-  `<button>`
+
+These elements are all technically inline, but they're special: they _can_ affect block layout. You can give them explicit dimensions, or add some `margin-top`.
+
+## Block elements don't share
+
+When you place a block level element on the page, its content box greedily expands to fill the entire available horizontal space.
+
+## Inline elements have “magic space”
+The reason for this extra “magic space” is that the browser treats inline elements as if they're typography.
+There are two ways we can fix this problem:
+
+1.  Set images to `display: block` — if you're noticing this problem, there's a good chance your images aren't interspersed with text, so setting them to display as blocks makes sense.
+    
+2.  Set the `line-height` on the wrapping div to `0
+## Inline elements can line-wrap
+
+Inline elements have one pretty big trick up their sleeves; they can line-wrap.
+
+This paragraph features a multi-line `<strong>` tag:
+
+This is a paragraph with **some very bolded words in it**.
+
+
+`box-decoration-break` takes two different values:
+
+-   slice (default)
+    
+-   clone
+    
+
+`slice` acts like a sushi roll being chopped. It's not a bunch of individual boxes, it's 1 long box, sliced into bits.
+
+`clone` is interesting: it allows us to treat each segment as its own box, and copy the styles to each one. Instead of 1 long box, we have 4 boxes, each with the same styles.
+
+## The deal with inline-block
+Essentially, inline-block allows you to drop a block element into an inline context. It's a block in inline's clothing.
+
+  `display: inline-block;`
