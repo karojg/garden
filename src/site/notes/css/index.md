@@ -11,6 +11,10 @@ In order to improve my CSS knowledge at the beggining of my career I built a sma
 # CSS for JS Developers
 Josh W Comeau's <a href="https://css-for-js.dev/">CSS for JS Developers</a> course notes.
 
+**TOC**
+- [Module 0 - Fundamentals Recap](#module-0---fundamentals-recap)
+- [Module 1 - Rendering Logic](#module-1---rendering-logic-i)
+
 # Module 0 - Fundamentals Recap
 
 ## Selectors
