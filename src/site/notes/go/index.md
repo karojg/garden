@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"dg-permalink":"ts","permalink":"/ts/","dgHomeLink":true,"dgPassFrontmatter":false}
+{"dg-publish":true,"dg-permalink":"go","permalink":"/go/","dgHomeLink":true,"dgPassFrontmatter":false}
 ---
 
 
@@ -7,20 +7,20 @@
 
 Declaring maps
 
-```markdown
+```go
 color := map[string]string{
 "red": "#fff00",
 "green": "#4566",
 }
 ```
 
-```markdown
+```go
 var colors map[string]string
 
 colors := make(map[string]string)
 ```
 
-```markdown
+```go
 var colors map[int]string
 
 colors[10] = "#fffff" // on map
@@ -31,7 +31,7 @@ delete(colors, 10)
 
 ## Iterating over maps
 
-```markdown
+```go
 func printMap(c map[string]string){
 for k,v:=range c{
 
@@ -57,7 +57,7 @@ No, in a single map they must be of the same type
 - Are implicit, we dont need to link out interface with the struct type
 -
 
-```markdown
+```go
 type bot interface{
 getGreeting() string
 }
@@ -89,7 +89,7 @@ To provide a sort of abstraction to all the different soruce of inputs we might 
 
 A goroutine is a lightweight thread managed by the Go runtime. Fetch requests at the same time.
 
-```markdown
+```go
 go f(x, y, z)
 starts a new goroutine running
 ```
