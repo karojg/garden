@@ -13,4 +13,5 @@ Notes Index
 - [[css/index|CSS]]
 - [[go/index|Go]]
 - [[js/index|JS]]
+- [[ts/index|TS]]
 - [[react/index|React]]
