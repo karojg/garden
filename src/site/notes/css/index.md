@@ -31,7 +31,7 @@ Pseudo-elements are like pseudo-classes, but they don't target a specific state.
 
 For example, we can style the placeholder text in a form input with `::placeholder`:
 
-```
+```css
 input::placeholder {
     color: goldenrod;
 }
@@ -57,7 +57,7 @@ There is no significant difference in terms of performance between these two exa
 
 ### Combinators
 The term “combinator” refers to a character that combines multiple selectors. In this case, the space character combines nav and a to create a descendant selector.
-```
+```css
 nav a {
     color: red;
     font-weight: bold;
@@ -78,7 +78,7 @@ The first number has the deg suffix since it's in degrees (from 0° to 360°), a
 
 Certain color formats allow us to supply an additional value for the alpha channel.
 
-```
+```css
 background-color: hsl(340deg 100% 50% / 1);
 ```
 
@@ -98,7 +98,7 @@ How often should you use ems? I don't often reach for them. It can be very surpr
 
 ### Rems
 
-The `rem` unit is quite a lot like the `em` unit, with one crucial difference: it's always relative to the root element, the <html> tag.
+The `rem` unit is quite a lot like the `em` unit, with one crucial difference: it's always relative to the root element, the `<html>` tag.
 
 It behaves consistently and predictably, like pixels, but it respects user preferences when it comes to increasing/decreasing default font sizes.
 
@@ -158,13 +158,12 @@ When we set our .box to have `width: 100%`, we're saying that the box's content 
 ### A new default
 Instead of having to remember to swap `box-sizing` on every layout element, we can set it as the default value for all elements with this handy code snippet:
 
-```
+``` css
 _,
 _::before,
 ::after {
     box-sizing: border-box;
 }
-
 ```
 
 ### Padding
@@ -172,7 +171,7 @@ Many developers believe that pixels are bad for accessibility. This is true when
 
 **Padding percentages**
 Can we use percentages for padding, like this?
-```
+```css
 .box {
   padding-top: 25%;
 }
@@ -180,7 +179,7 @@ Can we use percentages for padding, like this?
 
 We _can_, but the result is surprising and counter-intuitive; **percentages always refer to the width of the element**, even when setting top/bottom padding.
 
-```
+```css
 padding-block: 20px;
 padding-inline: 10px;
 padding-inline-start: 0px;
@@ -204,12 +203,13 @@ Outline is kinda more like box-shadow; it's a cosmetic effect draped over an ele
 
 > [!NOTE] a11y
 > Never apply the following CSS:
-> ```
+> ```css
 button {
   outline: none;
 }
-
+```markdown
 The problem is that this totally breaks navigation for keyboard users; that ring is required for them to know which element is currently focused!
+```
 
 ### Margin
 - Margin increases the space _around_ an element, giving it some breathing room.
@@ -235,7 +235,7 @@ Two caveats:
 
 ### Inline elements don't want to make a fuss
 This snippet will have no effect:
-```
+```css
 strong {
   height: 2em;
 }
@@ -285,4 +285,6 @@ There are two ways we can fix this problem:
 ### The deal with inline-block
 Essentially, inline-block allows you to drop a block element into an inline context. It's a block in inline's clothing.
 
-  `display: inline-block;`
+```css
+display: inline-block;
+```
