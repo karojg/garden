@@ -549,4 +549,27 @@ function wrapInArray<T>(arg: T): [T] {
 The `return` type. Based on the way we have defined this function, a `T[]` will be turned into a `{ [k: string]: T }` _for any `T` of our choosing_.
 
 
+-----
+[Intermediate TypeScript](https://www.typescript-training.com/course/intermediate-v1)
+# Declaration Merging
 
+A  **identifier**[1](https://www.typescript-training.com/course/intermediate-v1/02-declaration-merging/#fn-1) can provide a named reference to some information (be it a value, or a type).
+
+```ts
+(alias) interface Fruit 
+(alias) const Fruit: { 
+	name: string; color: string; mass:number; 
+	} 
+export Fruit
+```
+
+We have one identifier that’s three things in one:
+
+-   a value (class)
+-   a type
+-   a namespace
+
+> [!Classes]
+> Classes are both a type and a value.
+
+# #Type Queries
