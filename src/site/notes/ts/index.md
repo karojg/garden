@@ -572,4 +572,88 @@ We have one identifier that’s three things in one:
 > [!Classes]
 > Classes are both a type and a value.
 
-# #Type Queries
+# Type Queries
+Type queries allow us to obtain type information from values, which is an incredibly important capability — particularly when working with libraries that may not expose type information in a way that’s most useful for you
+
+## `keyof`
+
+The `keyof` type query allows us to obtain type representing all property keys on a given interface.
+
+```ts
+type DatePropertyNames = keyof Date
+```
+
+Not all keys are `string`s, so we can separate out those keys that are [`symbol`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/symbol)s and those that are `string`s using the intersection operator (`&`).
+
+```ts
+type DatePropertyNames = keyof Date
+
+type DateStringPropertyNames = DatePropertyNames & string
+// type DateStringPropertyNames = "toString" | "toDateString" | "toTimeString" ....
+type DateSymbolPropertyNames = DatePropertyNames & symbol
+// type DateSymbolPropertyNames = typeof Symbol.toPrimitive
+```
+
+## `typeof`
+
+The `typeof` type query allows you to extract a type from a value.
+
+```ts
+type ApiResponseType = typeof apiResponse
+// type ApiResponseType = [Response, string]
+```
+
+A common use of `typeof` is to obtain a type representing the “static site” of a class (meaning: constructor, `static` properties, and other things not present on an _instance_ of the class)
+
+## Extract and Exclude
+## `Extract`
+
+Extract is useful for obtaining some sub-part of a type that is assignable to some other type.
+```ts
+type StringColors = Extract<FavoriteColors, string>
+// type StringColors = "dark sienna" | "van dyke brown" | "yellow ochre" | "sap green" | "titanium white" | "phthalo green" | "prussian blue" | "cadium yellow"
+```
+
+We’re `Extract`ing the subset of `FavoriteColors` that is assignable to `string`.
+
+## Exclude
+
+`Exclude` is the opposite of `Extract`, in that it’s useful for obtaining **the part of a type that’s not assignable to some other type**
+
+```ts
+type NonStringColors = Exclude<FavoriteColors, string>
+
+// type NonStringColors = [number, number, number] | { red: number; green: number; blue: number; }
+```
+
+They’re just conditional types, and the only difference between them is the reversal of the “if true” and “if false” expressions (`never : T` vs `T : never`).
+
+# Inference with conditional types
+## `infer`: Type inference in conditional types
+
+`infer` , which can _only_ be used in the context of a condition expression (within a conditional type declaration) is an important tool for being able to _extract_ out pieces of type information from other types.
+
+The `infer` keyword gives us an important tool to solve this problem — it lets us **extract and obtain** type information from larger types.
+
+# Indexed Access Types
+Indexed Access types provide a mechanism for retrieving part(s) of an array or object type via indices. 
+These kinds of types are all about _accessing_ some part of another type, via _an index_
+
+```ts
+let carColor: Car["not-something-on-car"]
+// `Property 'not-something-on-car' does not exist on type 'Car'.`
+
+let carColorRedComponent: Car["color"]["red"]
+// let carColorRedComponent: string
+```
+
+You can pass or “project” a union type (`|`) through `Car` as an index, as long as all parts of the union type are _each_ a valid index.
+
+```ts
+let carProperty: Car["color" | "year"]
+
+// let carProperty: number | { red: string; green: string; blue: string; }
+```
+
+# Mapped Types
+Mapped allow types to be defined in other types through a much more flexible version of an index signature.
