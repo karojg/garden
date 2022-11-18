@@ -14,4 +14,6 @@ Notes Index
 - [[go/index|Go]]
 - [[js/index|JS]]
 - [[ts/index|TS]]
-- [[react/index|React]]
+- React
+	-  [[react/index|Fundamentals]]
+	-  [[react/index 1|Testing]]
