@@ -9,7 +9,7 @@
 
 ### for Loop
 
-```markdown
+```js
 for (initialization; condition; update statement) {
 // code block to be executed
 }
@@ -19,7 +19,7 @@ for (initialization; condition; update statement) {
 
 condition: defines the loop stop condition
 
-```markdown
+```js
 while (condition) {
 // code block to be executed
 }
@@ -29,7 +29,7 @@ while (condition) {
 
 condition: defines the loop stop condition
 
-```markdown
+```js
 do {
 // code block to be executed
 } while (condition)
@@ -37,13 +37,13 @@ do {
 
 ### for/of Loop
 
-```markdown
+```js
 for (let index of array) {
 console.log(index.name)
 }
 ```
 
-```markdown
+```js
 for (let index in array) {
 console.log(array[index])
 }
@@ -53,7 +53,7 @@ console.log(array[index])
 
 The forEach() will execute the provided callback function once for each array element.
 
-```markdown
+```js
 array.forEach(callback(currentValue [, index [, array]])[, thisArg]);
 ```
 
@@ -61,13 +61,13 @@ array.forEach(callback(currentValue [, index [, array]])[, thisArg]);
 
 The difference between the forEach and map, is that the map() method creates and returns a new array based on the result of the provided callback function.
 
-```markdown
+```js
 var new_array = array.map(function callback(currentValue[, index[, array]]) {
 // Return element for new_array
 }[, thisArg])
 ```
 
-```markdown
+```js
 var words = ['uno', 'dos', 'tres', 'cuatro'];
 words.forEach(function(word) {
 console.log(word);
@@ -81,7 +81,7 @@ words.shift();
 
 The array.reduce() is a method on array that accepts 2 arguments:
 
-```markdown
+```js
 const value = array.reduce(callback[, initialValue]);
 ```
 
@@ -91,7 +91,7 @@ JavaScript invokes the callback function upon each item of the array with 4 argu
 
 ## Index Of
 
-```markdown
+```js
 var array = [2, 9, 9];
 array.indexOf(2); // 0
 array.indexOf(7); // -1
@@ -106,7 +106,7 @@ JavaScript gives us four methods to add or remove items from the beginning or en
 
 ### pop()
 
-```markdown
+```js
 Remove an item from the end of an array
 let cats = ['Bob', 'Willy', 'Mini'];
 
@@ -116,7 +116,7 @@ pop() returns the removed item.
 
 ### push()
 
-```markdown
+```js
 Add items to the end of an array
 let cats = ['Bob'];
 
@@ -128,7 +128,7 @@ push() returns the new array length.
 
 ### shift()
 
-```markdown
+```js
 Remove an item from the beginning of an array
 let cats = ['Bob', 'Willy', 'Mini'];
 
@@ -147,7 +147,7 @@ unshift() returns the new array length.
 
 ### splice()
 
-```markdown
+```js
 Array.prototype.splice()
 const months = ['Jan', 'March', 'April', 'June'];
 months.splice(1, 0, 'Feb');
