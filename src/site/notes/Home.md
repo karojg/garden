@@ -13,6 +13,7 @@ Notes Index
 - [[css/index|CSS]]
 - [[go/index|Go]]
 - [[js/index|JS]]
+- [[graphql/index|GraphQL]]
 - [[ts/index|TS]]
 - React
 	-  [[react/index|Fundamentals]]
